@@ -14,14 +14,16 @@ function MovieModal({ movie, onClose }) {
   
   // Note: The TVMaze API returns the 'summary' text with HTML tags included (e.g., <p>...</p>).
   // You will need to figure out how to render this HTML string safely in React!
-  const summary = movie.summary || "No overview available.";
+  const summary = movie.summary
+    ? movie.summary.replace(/<[^>]*>/g, '').trim()
+    : "No overview available.";
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
         {/* Close Button */}
-        <button className="close-button" onClick={onClose}>
-          ✕ Close
+        <button className="close-button" onClick={onClose} aria-label="Close details">
+          Close
         </button>
         
         {/* Backdrop Image */}
@@ -34,7 +36,6 @@ function MovieModal({ movie, onClose }) {
           
           <div className="modal-overview">
             <h3>Overview:</h3>
-            {/* TODO: Display the summary text here */}
             <div>{summary}</div>
           </div>
         </div>

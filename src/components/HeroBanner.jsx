@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import heroImage from '../assets/hero.png';
 
 function HeroBanner() {
   const navigate = useNavigate();
@@ -10,11 +11,8 @@ function HeroBanner() {
   };
 
   return (
-    <section className="hero-banner">
-      {/* TODO: Style this section with a movie-related background image or gradient */}
-      
+    <section className="hero-banner" style={{ backgroundImage: `linear-gradient(90deg, rgba(16, 27, 34, .98), rgba(16, 27, 34, .55)), url(${heroImage})` }}>
       <div className="hero-content">
-        {/* TODO: Add application title/heading and a short engaging description */}
         <h2>Discover Movies</h2>
         <p>Explore and discover your favorite movies from around the world.</p>
         
