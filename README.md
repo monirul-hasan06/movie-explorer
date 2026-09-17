@@ -1,19 +1,84 @@
-# React + Vite
+# Movie Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Movie Explorer is a responsive React application for discovering TV shows. Browse shows from TVMaze, search by title, and open a details modal with the poster, rating, release year, genres, and overview.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Home page with branded navigation, hero banner, and Movie Explorer CTA.
+- Responsive show listing grid.
+- Show search powered by the TVMaze search endpoint.
+- Reusable show cards with poster, title, rating, and release year.
+- Details modal with a larger image and overview.
+- Netlify SPA redirect configuration for client-side routes.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- React 19
+- React Router
+- Vite
+- CSS
+- TVMaze API
+- Oxlint
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## Requirements
 
-## Expanding the Oxlint configuration
+- Node.js 22.12 or newer
+- npm
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Getting Started
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/monirul-hasan06/movie-explorer.git
+cd movie-explorer
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the local URL printed by Vite, usually `http://localhost:5173`.
+
+## Available Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server. |
+| `npm run build` | Create a production build in `dist`. |
+| `npm run preview` | Preview the production build locally. |
+| `npm run lint` | Run Oxlint. |
+
+## API
+
+The app uses the public [TVMaze API](https://www.tvmaze.com/api):
+
+- `GET https://api.tvmaze.com/shows` loads the initial show list.
+- `GET https://api.tvmaze.com/search/shows?q=:query` searches by title.
+
+No API key or environment variables are required.
+
+## Project Structure
+
+```text
+src/
+	components/       Reusable navigation, hero, card, and modal components
+	pages/            Home and movie listing routes
+	App.jsx           Application routes
+	App.css           Application styles
+	index.css         Global styles
+```
+
+## Deployment
+
+The repository includes `netlify.toml` with the following configuration:
+
+- Build command: `npm run build`
+- Publish directory: `dist`
+- Node version: `22.12.0`
+- SPA fallback: all routes serve `index.html`
+
+The project can be deployed by connecting the GitHub repository to Netlify.
