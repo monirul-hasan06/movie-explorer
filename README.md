@@ -74,9 +74,17 @@ src/
 
 ## Deployment
 
-The repository includes `netlify.toml` with the following configuration:
+The repository includes `vercel.json` with the following configuration:
 
 - Build command: `npm run build`
 - Publish directory: `dist`
 - Node version: `22.12.0`
-- SPA fallback: all routes serve `index.html`
+- SPA fallback: all routes serve `index.html` for React Router
+
+To deploy with Vercel:
+
+1. Import the repository into Vercel from GitHub.
+2. Select the `main` branch.
+3. Keep the detected Vite settings and click **Deploy**.
+
+No environment variables are required.
