@@ -80,5 +80,3 @@ The repository includes `netlify.toml` with the following configuration:
 - Publish directory: `dist`
 - Node version: `22.12.0`
 - SPA fallback: all routes serve `index.html`
-
-The project can be deployed by connecting the GitHub repository to Netlify.
